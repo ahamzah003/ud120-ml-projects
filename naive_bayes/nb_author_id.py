@@ -37,7 +37,13 @@ def NBAccuracy(features_train, labels_train, features_test, labels_test):
     clf.fit(features_train, labels_train)
     # set end time to measure training time
     print "training time:", round(time()-t0, 3), "s"
+    # set start time to measure prediction time
+    t0 = time()
+    # Predict the labels for the test data
     pred = clf.predict(features_test)
+    # set end time to measure prediction time
+    print "predicting time:", round(time()-t0, 3), "s"
+    # Calculate the accuracy of the predictions
     accuracy = accuracy_score(labels_test, pred)
     return accuracy
 
