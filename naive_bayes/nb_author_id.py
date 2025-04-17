@@ -31,7 +31,12 @@ def NBAccuracy(features_train, labels_train, features_test, labels_test):
     from sklearn.metrics import accuracy_score
     # Initialize the Gaussian Naive Bayes classifier                            
     clf = GaussianNB()
+    # set start time to measure training time
+    t0 = time()
+    # Fit the classifier to the training data
     clf.fit(features_train, labels_train)
+    # set end time to measure training time
+    print "training time:", round(time()-t0, 3), "s"
     pred = clf.predict(features_test)
     accuracy = accuracy_score(labels_test, pred)
     return accuracy
