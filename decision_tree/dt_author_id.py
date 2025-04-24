@@ -53,4 +53,7 @@ def DTAccuracy(features_train, labels_train, features_test, labels_test):
 accuracy = DTAccuracy(features_train, labels_train, features_test, labels_test)
 print("DT Accuracy:", accuracy)
 
+# The number of columns in the features_train numpy array is the number of features.
+print("Number of features:", len(features_train[0]))
+
 
