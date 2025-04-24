@@ -30,8 +30,8 @@ def prettyPicture(clf, X_test, y_test):
     plt.scatter(grade_sig, bumpy_sig, color = "b", label="fast")
     plt.scatter(grade_bkg, bumpy_bkg, color = "r", label="slow")
     plt.legend()
-    plt.xlabel("bumpiness")
-    plt.ylabel("grade")
+    plt.xlabel("grade")
+    plt.ylabel("bumpiness")
 
     plt.savefig("test.png")
 
