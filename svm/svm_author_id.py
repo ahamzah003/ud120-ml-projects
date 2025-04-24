@@ -67,5 +67,5 @@ def SVMAccuracy(features_train, labels_train, features_test, labels_test):
 
 # Call the function and print the accuracy                      
 accuracy = SVMAccuracy(features_train, labels_train, features_test, labels_test)
-print("NB Accuracy:", accuracy)
+print("SVC Accuracy:", accuracy)
 
