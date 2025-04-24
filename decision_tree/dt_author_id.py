@@ -9,6 +9,7 @@
 """
     
 import sys
+import numpy as np
 from time import time
 sys.path.append("../tools/")
 from email_preprocess import preprocess
@@ -44,6 +45,10 @@ def DTAccuracy(features_train, labels_train, features_test, labels_test):
     pred = clf.predict(features_test)
     # set end time to measure prediction time
     print("predicting time:", round(time()-t0, 3), "s")
+
+    # print total number of predicted Chris and Sara emails.
+    print("Number of Chris emails:", np.sum(pred == 1))
+    print("Number of Sara emails:", np.sum(pred == 0))
 
     # Calculate the accuracy of the classifier
     accuracy = accuracy_score(labels_test, pred)
