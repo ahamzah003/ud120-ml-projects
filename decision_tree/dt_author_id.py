@@ -24,8 +24,33 @@ features_train, features_test, labels_train, labels_test = preprocess()
 
 #########################################################
 ### your code goes here ###
+def DTAccuracy(features_train, labels_train, features_test, labels_test):
+    from sklearn.tree import DecisionTreeClassifier
+    from sklearn.metrics import accuracy_score
 
+    # Initialize the Decision Tree classifier
+    clf = DecisionTreeClassifier(min_samples_split=40)
 
+    # set start time to measure training time
+    t0 = time()
+    # Fit the classifier to the training data
+    clf.fit(features_train, labels_train)
+    # set end time to measure training time
+    print("training time:", round(time()-t0, 3), "s")
+    
+    # set start time to measure prediction time
+    t0 = time()
+    # Predict the labels for the test data
+    pred = clf.predict(features_test)
+    # set end time to measure prediction time
+    print("predicting time:", round(time()-t0, 3), "s")
+
+    # Calculate the accuracy of the classifier
+    accuracy = accuracy_score(labels_test, pred)
+    return accuracy
 #########################################################
+# Call the function and print the accuracy                      
+accuracy = DTAccuracy(features_train, labels_train, features_test, labels_test)
+print("DT Accuracy:", accuracy)
 
 
