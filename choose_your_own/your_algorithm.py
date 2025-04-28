@@ -3,6 +3,9 @@
 import matplotlib.pyplot as plt
 from prep_terrain_data import makeTerrainData
 from class_vis import prettyPicture
+from sklearn.preprocessing import MinMaxScaler
+from sklearn.metrics import accuracy_score
+from time import time
 
 features_train, labels_train, features_test, labels_test = makeTerrainData()
 
@@ -31,14 +34,46 @@ plt.show()
 ### your code here!  name your classifier object clf if you want the 
 ### visualization code (prettyPicture) to show you the decision boundary
 
+def KNNAccuracy(features_train, labels_train, features_test, labels_test):
+    from sklearn.neighbors import KNeighborsClassifier
+    # n_neighbors = 7; determined using sq. root of training set size=750
+    KNNclf = KNeighborsClassifier(n_neighbors=7, p=2, metric='minkowski')
+    print("n_neighbors = 7\n")
+
+    scaler = MinMaxScaler()
+    features_train_scaled = scaler.fit_transform(features_train)
+    features_test_scaled = scaler.transform(features_test)
+
+    # set start time to measure training time
+    t0 = time()
+    # Fit the classifier to the training data
+    KNNclf.fit(features_train_scaled, labels_train)
+    # set end time to measure training time
+    print "training time:", round(time()-t0, 3), "s"
+
+    # set start time to measure prediction time
+    t0 = time()
+    # Predict the labels for the test data
+    pred = KNNclf.predict(features_test_scaled)
+    # set end time to measure prediction time
+    print "predicting time:", round(time()-t0, 3), "s"
+
+    # Calculate the accuracy of the predictions
+    accuracy = accuracy_score(labels_test, pred)
+    return accuracy, KNNclf, features_test_scaled
 
 
 
-
-
-
+# Call the function and print the accuracy                      
+accuracy, KNNclf, features_test_scaled  = KNNAccuracy(features_train, labels_train, features_test, labels_test)
+print("KNN Accuracy:", accuracy)
 
 try:
-    prettyPicture(clf, features_test, labels_test)
+    prettyPicture(KNNclf, features_test_scaled, labels_test)
 except NameError:
     pass
+
+
+
+
+
