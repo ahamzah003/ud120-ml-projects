@@ -201,8 +201,7 @@ print "That makes {}% of the total people in the dataset".format(round((float(tp
 # use the featureFormat function to convert the dictionary to an array 
 arr1 = featureFormat(enron_data, feature_list,remove_NaN=True, remove_all_zeroes=False)
 # get values of POI when total payments is zero
-poi_nan = [x for x,y in arr1 if y==0]
-print poi_nan
+poi_nan = [x for x,y in arr1 if y==0 and x==1]
 # print the number of POIs with NaN for total payments
-print len(poi_nan)
+print "\n{} POIs have missing total payments value".format(len(poi_nan))
 
