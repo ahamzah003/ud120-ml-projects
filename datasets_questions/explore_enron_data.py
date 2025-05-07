@@ -87,3 +87,15 @@ def reSearch(search_string, string, case_ignore=True):
         return True
     else:
         return False
+    
+
+
+# Module 6.18
+# query the dataset 1 - What is the total value of the stock belonging to James Prentice?
+# search for James Prentice in the dataset
+for person in persons:
+    reSearch("james", person)
+
+# print the total value of stocks belonging to James Prentice
+print("Total value of stocks belonging to James Prentice: ", enron_data["PRENTICE JAMES"]["total_stock_value"])
+print("\n")
