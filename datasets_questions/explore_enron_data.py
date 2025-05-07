@@ -26,3 +26,8 @@ enron_data = pickle.load(open("../final_project/final_project_dataset.pkl", "r")
 # Module 6.13
 # size of the enron dataset
 print("Number of people in the dataset: ", len(enron_data))
+
+
+# Module 6.14
+# features in the enron dataset 
+print("Number of features for each person: ",len(next(iter(enron_data.values()))))
