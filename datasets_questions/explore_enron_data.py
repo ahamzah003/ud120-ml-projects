@@ -99,3 +99,15 @@ for person in persons:
 # print the total value of stocks belonging to James Prentice
 print("Total value of stocks belonging to James Prentice: ", enron_data["PRENTICE JAMES"]["total_stock_value"])
 print("\n")
+
+
+
+# Module 6.19
+# query the dataset 2 - How many email messages do we have from Wesley Colwell to persons of interest?
+
+# search for Wesley Colwell in the dataset
+for person in persons:
+    reSearch("colwell", person)
+
+print("Number of emails from Wesley Colwell to POIs: ", enron_data["COLWELL WESLEY"]["from_this_person_to_poi"])
+print("\n")
