@@ -71,3 +71,19 @@ print("Number of Yes-POIs in the poi_names.txt file: ", y_count)
 persons = [person.strip() for person in enron_data.keys()]
 feature_names = enron_data[persons[0]]
 print(feature_names)
+
+
+# define a function to search for a POI name matching a string
+def reSearch(search_string, string, case_ignore=True):
+    """
+    This function takes a search string and a string to search for
+    and returns True if the search string is found in the string,
+    otherwise it returns False.
+    """
+    import re
+    flags = re.IGNORECASE if case_ignore else 0
+    if re.search(search_string, string, flags=flags):
+        print(string)
+        return True
+    else:
+        return False
