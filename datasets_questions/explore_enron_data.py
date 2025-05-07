@@ -111,3 +111,15 @@ for person in persons:
 
 print("Number of emails from Wesley Colwell to POIs: ", enron_data["COLWELL WESLEY"]["from_this_person_to_poi"])
 print("\n")
+
+
+
+# Module 6.20
+# query the dataset 3 - What is the value of stock options exercised by Jeffrey Skilling?
+
+# search for Jeffrey Skilling in the dataset
+for person in persons:
+    reSearch("skilling", person)
+
+print("Value of stock options exercised by Jeffrey Skilling: ", enron_data["SKILLING JEFFREY K"]["exercised_stock_options"])
+print("\n")
