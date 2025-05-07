@@ -36,7 +36,7 @@ plt.show()
 
 def KNNAccuracy(features_train, labels_train, features_test, labels_test):
     from sklearn.neighbors import KNeighborsClassifier
-    # n_neighbors = 7; determined using sq. root of training set size=750
+    # n_neighbors = 7
     KNNclf = KNeighborsClassifier(n_neighbors=7, p=2, metric='minkowski')
     print("n_neighbors = 7\n")
 
@@ -64,9 +64,39 @@ def KNNAccuracy(features_train, labels_train, features_test, labels_test):
 
 
 
+
+def GBAccuracy(features_train, labels_train, features_test, labels_test):
+    from sklearn.ensemble import GradientBoostingClassifier
+    # n_estimators = 100
+    GBclf = GradientBoostingClassifier(n_estimators=50, learning_rate=0.1, max_depth=2, random_state=0)
+    print("n_estimators = 100\n")
+
+    # set start time to measure training time
+    t0 = time()
+    # Fit the classifier to the training data
+    GBclf.fit(features_train, labels_train)
+    # set end time to measure training time
+    print "training time:", round(time()-t0, 3), "s"
+
+    # set start time to measure prediction time
+    t0 = time()
+    # Predict the labels for the test data
+    pred = GBclf.predict(features_test)
+    # set end time to measure prediction time
+    print "predicting time:", round(time()-t0, 3), "s"
+
+    # Calculate the accuracy of the predictions
+    accuracy = accuracy_score(labels_test, pred)
+    return accuracy, GBclf
+
+
+
+
 # Call the function and print the accuracy                      
 accuracy, KNNclf, features_test_scaled  = KNNAccuracy(features_train, labels_train, features_test, labels_test)
 print("KNN Accuracy:", accuracy)
+#accuracy, GBclf  = GBAccuracy(features_train, labels_train, features_test, labels_test)
+#print("Gradient Boosting Accuracy:", accuracy)
 
 try:
     prettyPicture(KNNclf, features_test_scaled, labels_test)
