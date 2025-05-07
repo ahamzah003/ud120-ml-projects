@@ -43,3 +43,13 @@ for person in enron_data.keys():
         continue
 
 print("Number of POIs in the dataset: ", register)
+
+
+# Module 6.16
+# how many POIs exist
+with open("../final_project/poi_names.txt", "r") as f:
+    lines = f.readlines()
+
+# skip the first two lines (header and blank line)
+poi_names = [line.strip() for line in lines[2:]]
+print("Total Number of POIs in the poi_names.txt file: ", len(poi_names))
