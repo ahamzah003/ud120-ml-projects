@@ -149,3 +149,17 @@ poi_list = ["LAY KENNETH L", "SKILLING JEFFREY K", "FASTOW ANDREW S"]
 poi_dict = dict.fromkeys(poi_list)
 getMostPaid(poi_dict)
 
+
+
+# Module 6.27a
+# How many people in the dataset have a quantified salary?
+
+sal_n = 0
+# a for-loop to iterate through the persons in the dataset
+# and check if the salary is not "NaN"
+for person in persons:
+    if enron_data[person]["salary"] != "NaN":
+        sal_n += 1
+
+print "{} people have a quantified salary".format(sal_n)
+
