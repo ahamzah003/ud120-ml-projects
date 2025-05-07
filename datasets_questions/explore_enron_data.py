@@ -69,3 +69,5 @@ print("Number of Yes-POIs in the poi_names.txt file: ", y_count)
 
 # get POIs names and print the names of all features
 persons = [person.strip() for person in enron_data.keys()]
+feature_names = enron_data[persons[0]]
+print(feature_names)
