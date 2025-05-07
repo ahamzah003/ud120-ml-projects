@@ -31,3 +31,15 @@ print("Number of people in the dataset: ", len(enron_data))
 # Module 6.14
 # features in the enron dataset 
 print("Number of features for each person: ",len(next(iter(enron_data.values()))))
+
+
+# Module 6.15
+# finding POIs in the enron dataset
+register = 0
+for person in enron_data.keys():
+    if enron_data[person]['poi']==1:
+        register+=1
+    else:
+        continue
+
+print("Number of POIs in the dataset: ", register)
