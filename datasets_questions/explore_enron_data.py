@@ -123,3 +123,19 @@ for person in persons:
 
 print("Value of stock options exercised by Jeffrey Skilling: ", enron_data["SKILLING JEFFREY K"]["exercised_stock_options"])
 print("\n")
+
+
+
+def getMostPaid(p_dict):
+    """
+    This function takes a dictionary of features 
+    and returns the name of the person with the 
+    highest total payments in the Enron dataset.
+    """
+    for poi in p_dict.keys():
+        total_payment = enron_data[poi]["total_payments"]
+        p_dict[poi] = total_payment
+    # get maximum of the key-value tuples of `p_dict.items()` 
+    # using the value as the key parameter for `max()`
+    exco = max(p_dict.items(), key=lambda x: x[1])
+    print("{} took home the most money: ${}\n".format(exco[0], exco[1]))
