@@ -191,3 +191,18 @@ tp_nan = len(enron_data) - arr.shape[0]
 print "\n{} people in the E+F dataset have 'NaN' for their total payments.\n".format(tp_nan)
 # print the percentage of people with NaN for total payments
 print "That makes {}% of the total people in the dataset".format(round((float(tp_nan)/float(len(enron_data)))*100, 2))
+
+
+
+
+# Module 6.30
+# How many POIs in the dataset have "NaN" for their total payments?
+
+# use the featureFormat function to convert the dictionary to an array 
+arr1 = featureFormat(enron_data, feature_list,remove_NaN=True, remove_all_zeroes=False)
+# get values of POI when total payments is zero
+poi_nan = [x for x,y in arr1 if y==0]
+print poi_nan
+# print the number of POIs with NaN for total payments
+print len(poi_nan)
+
