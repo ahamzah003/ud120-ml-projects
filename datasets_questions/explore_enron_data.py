@@ -53,3 +53,15 @@ with open("../final_project/poi_names.txt", "r") as f:
 # skip the first two lines (header and blank line)
 poi_names = [line.strip() for line in lines[2:]]
 print("Total Number of POIs in the poi_names.txt file: ", len(poi_names))
+
+
+
+# get the number of POIs with a "y" in the poi_names.txt file
+y_count = 0
+for poi_name in poi_names:
+    if poi_name[1]=="y":
+        y_count+=1
+    else:
+        continue    
+
+print("Number of Yes-POIs in the poi_names.txt file: ", y_count)
