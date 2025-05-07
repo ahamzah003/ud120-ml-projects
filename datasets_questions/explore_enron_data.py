@@ -163,3 +163,13 @@ for person in persons:
 
 print "{} people have a quantified salary".format(sal_n)
 
+# Module 6.27b
+# How many people in the dataset have a known email address?
+
+email_n = 0
+
+for person in persons:    
+    if enron_data[person]["email_address"] != "NaN":
+        email_n += 1
+
+print "{} people have a known email address".format(email_n)
