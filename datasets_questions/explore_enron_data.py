@@ -22,3 +22,7 @@ from feature_format import featureFormat, targetFeatureSplit
 
 enron_data = pickle.load(open("../final_project/final_project_dataset.pkl", "r"))
 
+
+# Module 6.13
+# size of the enron dataset
+print("Number of people in the dataset: ", len(enron_data))
