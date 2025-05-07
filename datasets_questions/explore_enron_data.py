@@ -139,3 +139,13 @@ def getMostPaid(p_dict):
     # using the value as the key parameter for `max()`
     exco = max(p_dict.items(), key=lambda x: x[1])
     print("{} took home the most money: ${}\n".format(exco[0], exco[1]))
+
+
+
+# Module 6.25
+# Of there three individuals (Lay, Skilling, and Fastow),
+# who took home the most money?
+poi_list = ["LAY KENNETH L", "SKILLING JEFFREY K", "FASTOW ANDREW S"]
+poi_dict = dict.fromkeys(poi_list)
+getMostPaid(poi_dict)
+
