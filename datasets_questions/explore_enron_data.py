@@ -173,3 +173,21 @@ for person in persons:
         email_n += 1
 
 print "{} people have a known email address".format(email_n)
+
+
+
+# Module 6.29
+# dict-to-array conversion
+# What percentage of people in the dataset have "NaN" for their total payments?
+
+feature_list = ["poi","total_payments"]
+# NaNs are by default converted to zeros in the featureFormat function,
+# so we need to set remove_NaN=True and remove_all_zeroes=True to remove them from the array. 
+arr = featureFormat(enron_data, feature_list,remove_NaN=True, remove_all_zeroes=True)
+# subtract the number of rows in the array from the total number of people in the dataset
+# to get the number of people with NaN for total payments   
+tp_nan = len(enron_data) - arr.shape[0]
+# print the number of people with NaN for total payments
+print "\n{} people in the E+F dataset have 'NaN' for their total payments.\n".format(tp_nan)
+# print the percentage of people with NaN for total payments
+print "That makes {}% of the total people in the dataset".format(round((float(tp_nan)/float(len(enron_data)))*100, 2))
