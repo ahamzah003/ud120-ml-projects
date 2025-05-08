@@ -37,16 +37,18 @@ test_color = "r"
 ### Please name it reg, so that the plotting code below picks it up and 
 ### plots it correctly. Don't forget to change the test_color above from "b" to
 ### "r" to differentiate training points from test points.
-def studentReg(feature_train, target_train):
+def studentReg(feature_train, target_train, feature_test, target_test):
     from sklearn.linear_model import LinearRegression
     reg = LinearRegression()
     reg.fit(feature_train, target_train)
     print "Slope: ", reg.coef_
     print "Intercept: ", reg.intercept_
+    print "R^2: ", reg.score(feature_train, target_train)
+    print "R^2 - TestData: ", reg.score(feature_test, target_test)
     return reg
     
 
-reg = studentReg(feature_train, target_train)
+reg = studentReg(feature_train, target_train, feature_test, target_test)
 
 ### draw the scatterplot, with color-coded training and testing points
 import matplotlib.pyplot as plt
