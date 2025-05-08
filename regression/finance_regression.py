@@ -43,12 +43,7 @@ def studentReg(feature_train, target_train):
     reg.fit(feature_train, target_train)
     return reg
 
-
-
-
-
-
-
+reg = studentReg(feature_train, target_train)
 
 ### draw the scatterplot, with color-coded training and testing points
 import matplotlib.pyplot as plt
