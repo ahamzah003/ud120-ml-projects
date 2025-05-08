@@ -41,7 +41,9 @@ def studentReg(feature_train, target_train):
     from sklearn.linear_model import LinearRegression
     reg = LinearRegression()
     reg.fit(feature_train, target_train)
+    print "Slope: ", reg.coef_
     return reg
+    
 
 reg = studentReg(feature_train, target_train)
 
