@@ -42,6 +42,7 @@ def studentReg(feature_train, target_train):
     reg = LinearRegression()
     reg.fit(feature_train, target_train)
     print "Slope: ", reg.coef_
+    print "Intercept: ", reg.intercept_
     return reg
     
 
