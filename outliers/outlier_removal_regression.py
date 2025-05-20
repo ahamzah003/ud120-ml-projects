@@ -84,3 +84,5 @@ else:
 
 # print new slope after the outliers have been removed
 print "New Slope: ", reg.coef_
+# print new score after the outliers have been removed
+print "New R^2: ", reg.score(ages_test, net_worths_test)
