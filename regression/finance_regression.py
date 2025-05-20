@@ -69,8 +69,12 @@ try:
     plt.plot( feature_test, reg.predict(feature_test) )
 except NameError:
     pass
+# checking the effects of outliers when it false in the test set.
 reg.fit(feature_test, target_test)
 plt.plot(feature_train, reg.predict(feature_train), color="b")
+print "New Slope: ", reg.coef_
+print "New Intercept: ", reg.intercept_
+
 plt.xlabel(features_list[1])
 plt.ylabel(features_list[0])
 plt.legend()
