@@ -82,3 +82,5 @@ if len(cleaned_data) > 0:
 else:
     print "outlierCleaner() is returning an empty list, no refitting to be done"
 
+# print new slope after the outliers have been removed
+print "New Slope: ", reg.coef_
