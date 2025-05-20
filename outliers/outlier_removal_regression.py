@@ -24,17 +24,17 @@ from sklearn.model_selection import train_test_split
 ages_train, ages_test, net_worths_train, net_worths_test = train_test_split(ages, net_worths, test_size=0.1, random_state=42)
 
 ### fill in a regression here!  Name the regression object reg so that
-### the plotting code below works, and you can see what your regression looks like
+### the plotting code below works, and you can see what your regression looks like                                                          
+def regFit(ages_train, net_worths_train, ages_test, net_worths_test):
+    from sklearn.linear_model import LinearRegression
+    reg = LinearRegression()
+    reg.fit(ages_train, net_worths_train)
+    print "Slope: ", reg.coef_
+    print "Intercept: ", reg.intercept_
+    print "R^2: ", reg.score(ages_test, net_worths_test)
+    return reg
 
-
-
-
-
-
-
-
-
-
+reg = regFit(ages_train, net_worths_train, ages_test, net_worths_test)
 
 try:
     plt.plot(ages, reg.predict(ages), color="blue")
